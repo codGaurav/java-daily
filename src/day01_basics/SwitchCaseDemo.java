@@ -33,7 +33,9 @@ public class SwitchCaseDemo {
 				break;
 			default:
 				System.out.println("Enter valid number");
-				sc.close();
+				
 			
 		}
+			sc.close();
+	}
 }
