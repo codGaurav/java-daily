@@ -55,30 +55,32 @@ public class ArrayProblems {
 		System.out.println("\n=== Problem 4: Rotate Array Right ===");
 
 		int[] toRotate = { 1, 2, 3, 4, 5 };
-		System.out.println("Original Array: "+Arrays.toString(toRotate));
+		System.out.println("Original Array: " + Arrays.toString(toRotate));
 		int rotateBy = 2;
 
 		int[] rotated = new int[toRotate.length];
-		
-		for(int i = 0; i<toRotate.length;i++) {
-			rotated[( i + rotateBy)%toRotate.length] = toRotate[i];
+
+		for (int i = 0; i < toRotate.length; i++) {
+			rotated[(i + rotateBy) % toRotate.length] = toRotate[i];
 		}
-		System.out.println("Rotated by "+rotateBy+" & Rotated Array: "+Arrays.toString(rotated));
-		
-        // Problem 5: Check if array is palindrome
-        System.out.println("\n=== Problem 5: Palindrome Array ===");
-        int[] palindromeArr = {1, 2, 3, 2, 1};
-        System.out.println("Array: " + Arrays.toString(palindromeArr));
-        
-        boolean isPalindrome = true;
-        
-        for(int i =0;i<palindromeArr.length;i++) {
-        	if(palindromeArr[i] != palindromeArr[palindromeArr.length - 1 -i]) {
-        		isPalindrome = false;
-        		break;
-        	}
-        	
-        }
-        System.out.println("Is Palindrome? "+isPalindrome);
+		System.out.println("Rotated by " + rotateBy + " & Rotated Array: " + Arrays.toString(rotated));
+
+		// Problem 5: Check if array is palindrome
+		System.out.println("\n=== Problem 5: Palindrome Array ===");
+		int[] palindromeArr = { 1, 2, 3, 2, 1 };
+		System.out.println("Array: " + Arrays.toString(palindromeArr));
+
+		boolean isPalindrome = true;
+
+//        for(int i =0;i<palindromeArr.length;i++) {
+//		  We only need to check half of the array because the remaining half is a mirror.
+		for (int i = 0; i < palindromeArr.length/2; i++) {
+			if (palindromeArr[i] != palindromeArr[palindromeArr.length - 1 - i]) {
+				isPalindrome = false;
+				break;
+			}
+
+		}
+		System.out.println("Is Palindrome? " + isPalindrome);
 	}
 }
