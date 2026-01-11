@@ -125,4 +125,86 @@ public class Library {
 		System.out.println("Book returned successfully!");
 	}
 
+	public void displayAllBooks() {
+		if (bookCount == 0) {
+			System.out.println("No books available!");
+			return;
+		}
+		System.out.println("\n--- All Books ---");
+		for (int i = 0; i < bookCount; i++) {
+			books[i].displayInfo();
+		}
+	}
+	
+	public void displayAllMembers() {
+
+	    if (memberCount == 0) {
+	        System.out.println("No members found!");
+	        return;
+	    }
+
+	    System.out.println("\n--- All Members ---");
+	    for (int i = 0; i < memberCount; i++) {
+	        members[i].displayInfo();
+	    }
+	}
+	
+	public void searchBookByTitle(String title) {
+		boolean found = false;
+		
+		for (int i=0; i<bookCount; i++) {
+			if(books[i].getTitle().equalsIgnoreCase(title)) {
+				books[i].displayInfo();
+				found = true;
+			}
+		}
+		if(!found) {
+			System.out.println("Book not found!");
+		}
+	}
+	
+	public void removeBook(int bookId) {
+
+	    for (int i = 0; i < bookCount; i++) {
+
+	        if (books[i].getBookId() == bookId) {
+
+	            // shift left
+	            for (int j = i; j < bookCount - 1; j++) {
+	                books[j] = books[j + 1];
+	            }
+
+	            books[bookCount - 1] = null;
+	            bookCount--;
+
+	            System.out.println("Book removed successfully!");
+	            return;
+	        }
+	    }
+
+	    System.out.println("Book not found!");
+	}
+
+	public void removeMember(int memberId) {
+
+	    for (int i = 0; i < memberCount; i++) {
+
+	        if (members[i].getMemberId() == memberId) {
+
+	            for (int j = i; j < memberCount - 1; j++) {
+	                members[j] = members[j + 1];
+	            }
+
+	            members[memberCount - 1] = null;
+	            memberCount--;
+
+	            System.out.println("Member removed successfully!");
+	            return;
+	        }
+	    }
+
+	    System.out.println("Member not found!");
+	}
+
+
 }
