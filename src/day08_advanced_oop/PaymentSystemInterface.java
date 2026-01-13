@@ -24,7 +24,7 @@ class CreditCardPayment implements Payment {
         System.out.println("\n💳 Processing Credit Card Payment");
         System.out.println("Card Holder: " + cardHolder);
         System.out.println("Card: ****" + cardNumber.substring(cardNumber.length() - 4));
-        System.out.println("Amount: $" + amount);
+        System.out.println("Amount: ₹" + amount);
         System.out.println("✅ Payment Successful!");
         return true;
     }
@@ -65,7 +65,7 @@ class CashPayment implements Payment {
     @Override
     public boolean processPayment(double amount) {
         System.out.println("\n💵 Processing Cash Payment");
-        System.out.println("Amount: $" + amount);
+        System.out.println("Amount: ₹" + amount);
         System.out.println("✅ Payment Received!");
         return true;
     }
@@ -89,7 +89,7 @@ class PayPalPayment implements Payment {
     public boolean processPayment(double amount) {
         System.out.println("\n🅿️ Processing PayPal Payment");
         System.out.println("Email: " + email);
-        System.out.println("Amount: $" + amount);
+        System.out.println("Amount: ₹" + amount);
         System.out.println("✅ Payment Successful!");
         return true;
     }
@@ -108,7 +108,7 @@ public class PaymentSystemInterface {
         System.out.println("║     PAYMENT SYSTEM - DAY 8        ║");
         System.out.println("╚═══════════════════════════════════╝");
         
-        System.out.print("\nEnter amount to pay: $");
+        System.out.print("\nEnter amount to pay: ₹");
         double amount = sc.nextDouble();
         
         System.out.println("\nSelect Payment Method:");
