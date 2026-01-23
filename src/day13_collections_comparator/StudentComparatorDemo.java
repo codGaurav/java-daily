@@ -28,7 +28,14 @@ class MarksDescComparator implements Comparator<Student> {
     }
 }
 
-// Comparator 2: Sort by Name (Ascending)
+// Comparator 2: Sort by Marks (Ascending)
+class MarksAsceComparator implements Comparator<Student>{
+	public int compare(Student s1, Student s2) {
+		return Double.compare(s1.marks, s2.marks);
+	}
+}
+
+// Comparator 3: Sort by Name (Ascending)
 class NameAscComparator implements Comparator<Student> {
     @Override
     public int compare(Student s1, Student s2) {
@@ -36,6 +43,12 @@ class NameAscComparator implements Comparator<Student> {
     }
 }
 
+// Comparator 4: Sort by Name (Descending)
+class NameDescComparator implements Comparator<Student>{
+	public int compare(Student s1, Student s2) {
+		return s2.name.compareToIgnoreCase(s1.name);
+	}
+}
 public class StudentComparatorDemo {
     public static void main(String[] args) {
 
@@ -63,6 +76,20 @@ public class StudentComparatorDemo {
         System.out.println("\n=== Sorted by Name (Ascending) ===");
         for (Student s : students) {
             s.display();
+        }
+        
+        // Sort by Name (Descending)
+        Collections.sort(students, new NameDescComparator());
+        System.out.println("\n=== Sorted by Name (Descending) ===");
+        for(Student s : students) {
+        	s.display();
+        }
+        
+        // Sort by Marks (Ascending)
+        Collections.sort(students, new MarksAsceComparator());
+        System.out.println("\n=== Sorted by Marks (Ascending) ===");
+        for(Student s : students) {
+        	s.display();
         }
     }
 }
